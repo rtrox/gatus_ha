@@ -20,7 +20,7 @@ _Expose Your Gatus Uptime Checks as Sensors_
 
 While in development, this Integration can be added through HACS, by adding this repo as a [HACS custom repository](https://hacs.xyz/docs/faq/custom_repositories/).
 
-![Custom Repository Dropdown](.github/images/custom_repositories.png | height=150)![Add Repo](.github/images/add.png | height=150)
+<img src=".github/images/custom_repositories.png" height="400"><img src=".github/images/add.png" height="400">
 
 # Configuration
 
