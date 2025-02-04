@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+python3 -m pip install --requirement requirements.txt
+python3 -m pip install --requirement requirements.test.txt
+
+GO_VERSION=1.23.5
+UNAME_ARCH=$(uname -m)
+if [ "$UNAME_ARCH" = "x86_64" ]; then
+    GO_ARCH=amd64
+fi
+
+if [ "$UNAME_ARCH" = "aarch64" ]; then
+    GO_ARCH=arm64
+fi
+
+if [ "$UNAME_ARCH" = "arm64" ]; then
+    GO_ARCH=arm64
+fi
+
+cd "$(dirname "$0")/../config"
+
+curl -OL https://go.dev/dl/go${GO_VERSION}.linux-${GO_ARCH}.tar.gz
+
+sudo tar -C /usr/local -xzf go${GO_VERSION}.linux-${GO_ARCH}.tar.gz
+
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+
+git clone https://github.com/TwiN/gatus.git
+
+cd gatus
+
+export PATH=$PATH:/usr/local/go/bin
+go build -o gatus
+

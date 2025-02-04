@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+# Create config dir if not present
+if [[ ! -d "${PWD}/config" ]]; then
+    mkdir -p "${PWD}/config"
+    hass --config "${PWD}/config" --script ensure_config
+fi
+
+# Set the path to custom_components
+## This let's us have the structure we want <root>/custom_components/integration_blueprint
+## while at the same time have Home Assistant configuration inside <root>/config
+## without resulting to symlinks.
+export PYTHONPATH="${PYTHONPATH}:${PWD}/custom_components"
+
+function handle_sigint() {
+    echo "Received SIGINT. Cleaning up..."
+    kill $pid1 $pid2 2>/dev/null  # Kill both processes
+    exit 1
+}
+
+trap handle_sigint SIGINT
+
+# Start Gatus
+echo "Starting Gatus..."
+GATUS_CONFIG_PATH=/workspaces/gatus_ha/config/gatus/config.yaml /workspaces/gatus_ha/config/gatus/gatus server &
+pid1=$!
+echo "Gatus started with PID $pid1"
+
+# Start Home Assistant
+echo "Starting Home Assistant..."
+hass --config "${PWD}/config" --debug &
+pid2=$!
+echo "Home Assistant started with PID $pid2"
+
+wait $pid1 $pid2

@@ -1,0 +1,24 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Enter connection information for your Gatus instance:",
+                "data": {
+                    "name": "Instance Name",
+                    "url": "Base URL (e.g. https://status.example.com)",
+                    "verify_ssl": "Verify SSL Certificate"
+                }
+            }
+        },
+        "error": {
+            "timeout": "Connection timed out.",
+            "ssl": "SSL error occurred.",
+            "dns": "DNS resolution failed.",
+            "connection": "Unable to connect to the server.",
+            "unknown": "Unknown error occurred."
+        },
+        "abort": {
+            "already_configured": "This entry is already configured."
+        }
+    }
+}

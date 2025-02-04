@@ -1,0 +1,59 @@
+"""DataUpdateCoordinator for gatus_ha."""
+
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+
+from .api import (
+    GatusApiClient,
+    GatusApiClientError,
+    GatusApiClientTimeoutError,
+    StatusesResponse,
+)
+from .const import COORDINATOR_UPDATE_INTERVAL, DOMAIN, LOGGER
+
+if TYPE_CHECKING:
+    from homeassistant.core import HomeAssistant
+    from homeassistant.helpers import device_registry as dr
+
+    from .data import GatusConfigEntry
+
+
+# https://developers.home-assistant.io/docs/integration_fetching_data#coordinated-single-api-poll-for-data-for-all-entities
+class GatusDataUpdateCoordinator(DataUpdateCoordinator):
+    """Class to manage fetching data from the API."""
+
+    data: StatusesResponse
+    config_entry: GatusConfigEntry
+    config_entry_id: str
+
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        config_entry_id: str,
+        dev_reg: dr.DeviceRegistry,
+        client: GatusApiClient,
+    ) -> None:
+        """Initialize coordinator."""
+        super().__init__(
+            hass,
+            LOGGER,
+            name=DOMAIN,
+            update_interval=COORDINATOR_UPDATE_INTERVAL,
+        )
+        self._config_entry_id = config_entry_id
+        self._device_registry = dev_reg
+        self.client = client
+
+    async def _async_update_data(self) -> StatusesResponse:
+        """Update data via library."""
+        try:
+            response = await self.config_entry.runtime_data.client.async_get_statuses()
+        except GatusApiClientTimeoutError as exception:
+            raise UpdateFailed(exception) from exception
+        except GatusApiClientError as exception:
+            raise UpdateFailed(exception) from exception
+
+        return response
