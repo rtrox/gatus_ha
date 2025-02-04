@@ -22,8 +22,8 @@ if TYPE_CHECKING:
 
 ENTITY_DESCRIPTIONS = (
     BinarySensorEntityDescription(
-        key="integration_blueprint",
-        name="Integration Blueprint Binary Sensor",
+        key="gatus",
+        name="Gatus Endpoint is Up",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
     ),
 )
@@ -51,7 +51,7 @@ async def async_setup_entry(
 
 
 class GatusBinarySensor(GatusEntity, BinarySensorEntity):
-    """integration_blueprint binary_sensor class."""
+    """gatus binary_sensor class."""
 
     def __init__(
         self,
