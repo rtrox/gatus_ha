@@ -1,0 +1,24 @@
+name: Validate HACS readiness
+on:
+  workflow_call:
+
+jobs:
+  validate:
+    name: Validate with Hassfest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Hassfest Validation
+        uses: "home-assistant/actions/hassfest@master"
+
+  hacs:
+    name: Validate HACS
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: HACS Action
+        uses: "hacs/action@main"
+        with:
+          category: "integration"

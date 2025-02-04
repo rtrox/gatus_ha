@@ -1,10 +1,7 @@
-name: Handle Push to Main Branch
-# https://dev.to/koddr/github-action-for-release-your-go-projects-as-fast-and-easily-as-possible-20a2
-# https://github.com/orgs/community/discussions/25244
+name: On Cron
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron:  '0 0 * * *'
 
 jobs:
   tests:

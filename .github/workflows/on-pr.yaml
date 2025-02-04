@@ -14,3 +14,10 @@ jobs:
       pull-requests: read
       checks: write
     uses: ./.github/workflows/tests.yaml
+
+  hacs:
+    permissions:
+      contents: read
+      pull-requests: read
+      checks: write
+    uses: ./.github/workflows/hacs.yaml
