@@ -8,8 +8,8 @@ _Expose Your Gatus Uptime Checks as Sensors_
 
 <div align="center">
 
-![GitHub branch check runs](https://img.shields.io/github/check-runs/rtrox/gatus_ha/main?style=for-the-badge&logo=pytest&label=main)
-![Coveralls](https://img.shields.io/coverallsCoverage/github/rtrox/gatus_ha?style=for-the-badge&logo=coveralls)
+![GitHub branch check runs](https://img.shields.io/github/check-runs/rtrox/gatus_ha/main?style=for-the-badge&logo=pytest&logoColor=white&label=main&link=https%3A%2F%2Fgithub.com%2Frtrox%2Fgatus_ha%2Factions%3Fquery%3Dbranch%253Amain)
+![Coveralls](https://img.shields.io/coverallsCoverage/github/rtrox/gatus_ha?branch=main&style=for-the-badge&logo=coveralls&logoColor=white&link=https%3A%2F%2Fcoveralls.io%2Fgithub%2Frtrox%2Fgatus_ha%3Fbranch%3Dmain)
 ![GitHub Repo stars](https://img.shields.io/github/stars/rtrox/gatus_ha?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/rtrox/gatus_ha?style=for-the-badge)
 
