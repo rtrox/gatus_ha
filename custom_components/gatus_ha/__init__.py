@@ -5,7 +5,6 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from homeassistant.const import CONF_URL, CONF_VERIFY_SSL, Platform
-from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.loader import async_get_loaded_integration
 
@@ -30,8 +29,6 @@ async def async_setup_entry(
     entry: GatusConfigEntry,
 ) -> bool:
     """Set up the Gatus integration."""
-    dev_reg = dr.async_get(hass)
-
     coordinator = GatusDataUpdateCoordinator(
         hass=hass,
         config_entry_id=entry.entry_id,

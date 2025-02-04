@@ -16,7 +16,6 @@ from .const import COORDINATOR_UPDATE_INTERVAL, DOMAIN, LOGGER
 
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
-    from homeassistant.helpers import device_registry as dr
 
     from .data import GatusConfigEntry
 
