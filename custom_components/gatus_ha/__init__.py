@@ -35,7 +35,6 @@ async def async_setup_entry(
     coordinator = GatusDataUpdateCoordinator(
         hass=hass,
         config_entry_id=entry.entry_id,
-        dev_reg=dev_reg,
         client=GatusApiClient(
             url=entry.data[CONF_URL],
             session=async_get_clientsession(hass),

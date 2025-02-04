@@ -1,4 +1,4 @@
-"""Binary sensor platform for integration_blueprint."""
+"""Binary sensor platform for gatus_ha."""
 
 from __future__ import annotations
 
@@ -51,7 +51,7 @@ async def async_setup_entry(
 
 
 class GatusBinarySensor(GatusEntity, BinarySensorEntity):
-    """gatus binary_sensor class."""
+    """Gatus binary_sensor class."""
 
     def __init__(
         self,

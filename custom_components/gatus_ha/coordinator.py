@@ -33,7 +33,6 @@ class GatusDataUpdateCoordinator(DataUpdateCoordinator):
         self,
         hass: HomeAssistant,
         config_entry_id: str,
-        dev_reg: dr.DeviceRegistry,
         client: GatusApiClient,
     ) -> None:
         """Initialize coordinator."""
@@ -44,7 +43,6 @@ class GatusDataUpdateCoordinator(DataUpdateCoordinator):
             update_interval=COORDINATOR_UPDATE_INTERVAL,
         )
         self._config_entry_id = config_entry_id
-        self._device_registry = dev_reg
         self.client = client
 
     async def _async_update_data(self) -> StatusesResponse:
