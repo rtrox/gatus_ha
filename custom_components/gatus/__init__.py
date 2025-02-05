@@ -13,13 +13,12 @@ from .const import LOGGER
 from .coordinator import GatusDataUpdateCoordinator
 from .data import GatusData
 
-if TYPE_CHECKING:
+if TYPE_CHECKING:  # pragma: no cover
     from homeassistant.core import HomeAssistant
 
     from .data import GatusConfigEntry
 
 PLATFORMS: list[Platform] = [
-    # Platform.SENSOR,
     Platform.BINARY_SENSOR,
 ]
 

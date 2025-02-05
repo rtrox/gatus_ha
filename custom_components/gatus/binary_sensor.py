@@ -12,7 +12,7 @@ from homeassistant.components.binary_sensor import (
 
 from .entity import GatusEntity
 
-if TYPE_CHECKING:
+if TYPE_CHECKING:  # pragma: no cover
     from homeassistant.core import HomeAssistant
     from homeassistant.helpers.entity_platform import AddEntitiesCallback
 

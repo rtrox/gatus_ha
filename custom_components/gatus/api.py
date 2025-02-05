@@ -13,7 +13,7 @@ from aiohttp import (
 )
 from pydantic import BaseModel
 
-if TYPE_CHECKING:
+if TYPE_CHECKING:  # pragma: no cover
     import aiohttp
 
 

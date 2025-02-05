@@ -29,7 +29,7 @@ Once Installed, Add via the Web UI in the Integrations Menu
 ![Config Flow](.github/images/config_flow.png)
 
 - **Instance Name**: A unique name for your Gatus deployment. This is only used as the label for the Integration in Home Assistant.
-- **Base URL**: The Base URL for your Gatus Deployment, Including the protocol (`http://` or `https://`, and if necessary the port.) Examples:
+- **Base URL**: The Base URL for your Gatus Deployment, Including the protocol (`http://` or `https://`), and if necessary the port. Examples:
     - https://status.example.com
     - http://localhost:8080
 - **Verify SSL**: Whether Home Assistant should verify that your SSL Certificate is valid (if using HTTPS).

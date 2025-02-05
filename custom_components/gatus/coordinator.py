@@ -14,7 +14,7 @@ from .api import (
 )
 from .const import COORDINATOR_UPDATE_INTERVAL, DOMAIN, LOGGER
 
-if TYPE_CHECKING:
+if TYPE_CHECKING:  # pragma: no cover
     from homeassistant.core import HomeAssistant
 
     from .data import GatusConfigEntry
