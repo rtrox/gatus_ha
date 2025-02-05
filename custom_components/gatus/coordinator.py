@@ -9,7 +9,6 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 from .api import (
     GatusApiClient,
     GatusApiClientError,
-    GatusApiClientTimeoutError,
     StatusesResponse,
 )
 from .const import COORDINATOR_UPDATE_INTERVAL, DOMAIN, LOGGER
@@ -47,9 +46,7 @@ class GatusDataUpdateCoordinator(DataUpdateCoordinator):
     async def _async_update_data(self) -> StatusesResponse:
         """Update data via library."""
         try:
-            response = await self.config_entry.runtime_data.client.async_get_statuses()
-        except GatusApiClientTimeoutError as exception:
-            raise UpdateFailed(exception) from exception
+            response = await self.client.async_get_statuses()
         except GatusApiClientError as exception:
             raise UpdateFailed(exception) from exception
 
