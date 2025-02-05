@@ -5,8 +5,8 @@
   "config_flow": true,
   "dependencies": [],
   "documentation": "https://github.com/rtrox/gatus_ha/blob/main/README.md",
-  "issue_tracker": "https://github.com/rtrox/gatus_ha/issues",
   "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/rtrox/gatus_ha/issues",
   "requirements": [],
   "version": "0.1.0"
 }
