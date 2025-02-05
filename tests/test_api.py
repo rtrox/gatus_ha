@@ -18,6 +18,7 @@ from custom_components.gatus.api import (
     GatusApiClient,
     GatusApiClientConnectionError,
     GatusApiClientDNSError,
+    GatusApiClientError,
     GatusApiClientSSLError,
     GatusApiClientTimeoutError,
     GatusEndpointStatus,
@@ -296,4 +297,13 @@ async def test_connection_error(client: GatusApiClient) -> None:
         m.get(f"{API_URL}{CONFIG_PATH}", exception=ClientConnectionError)
 
         with pytest.raises(GatusApiClientConnectionError):
+            await client.async_get_config()
+
+
+@pytest.mark.asyncio
+async def test_unknown_error(client: GatusApiClient) -> None:
+    with aioresponses() as m:
+        m.get(f"{API_URL}{CONFIG_PATH}", exception=Exception)
+
+        with pytest.raises(GatusApiClientError):
             await client.async_get_config()
