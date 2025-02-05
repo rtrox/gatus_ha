@@ -10,12 +10,12 @@ from homeassistant.helpers import entity_registry as er
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 from pytest_mock.plugin import MockerFixture
 
-from custom_components.gatus_ha.api import (
+from custom_components.gatus.api import (
     GatusApiClient,
     GatusEndpointStatus,
     StatusesResponse,
 )
-from custom_components.gatus_ha.const import DOMAIN
+from custom_components.gatus.const import DOMAIN
 
 
 @pytest.fixture

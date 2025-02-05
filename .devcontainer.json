@@ -1,5 +1,5 @@
 {
-    "name": "rtrox/gatus_ha",
+    "name": "rtrox/gatus",
     "image": "mcr.microsoft.com/devcontainers/python:3.13",
     "postCreateCommand": "scripts/setup",
     "forwardPorts": [

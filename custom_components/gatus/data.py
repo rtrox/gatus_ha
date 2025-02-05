@@ -1,4 +1,4 @@
-"""Custom types for gatus_ha."""
+"""Custom types for gatus."""
 
 from __future__ import annotations
 

@@ -26,7 +26,7 @@ trap handle_sigint SIGINT
 
 # Start Gatus
 echo "Starting Gatus..."
-GATUS_CONFIG_PATH=/workspaces/gatus_ha/config/gatus/config.yaml /workspaces/gatus_ha/config/gatus/gatus server &
+GATUS_CONFIG_PATH=/workspaces/gatus/config/gatus/config.yaml /workspaces/gatus/config/gatus/gatus server &
 pid1=$!
 echo "Gatus started with PID $pid1"
 

@@ -1,4 +1,4 @@
-"""DataUpdateCoordinator for gatus_ha."""
+"""DataUpdateCoordinator for gatus."""
 
 from __future__ import annotations
 

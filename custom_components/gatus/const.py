@@ -3,7 +3,7 @@
 from datetime import timedelta
 from logging import Logger, getLogger
 
-DOMAIN = "gatus_ha"
+DOMAIN = "gatus"
 COORDINATOR_UPDATE_INTERVAL = timedelta(seconds=10)
 
 LOGGER: Logger = getLogger(__package__)

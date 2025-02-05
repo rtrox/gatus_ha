@@ -1,12 +1,12 @@
-"""Unit tests for the GatusEntity class in the gatus_ha integration."""
+"""Unit tests for the GatusEntity class in the gatus integration."""
 
 from unittest.mock import MagicMock
 
 import pytest
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 
-from custom_components.gatus_ha.coordinator import GatusDataUpdateCoordinator
-from custom_components.gatus_ha.entity import GatusEntity
+from custom_components.gatus.coordinator import GatusDataUpdateCoordinator
+from custom_components.gatus.entity import GatusEntity
 
 
 @pytest.fixture

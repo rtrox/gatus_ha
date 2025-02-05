@@ -13,7 +13,7 @@ from aiohttp import (
 )
 from aioresponses import aioresponses
 
-from custom_components.gatus_ha.api import (
+from custom_components.gatus.api import (
     ConfigResponse,
     GatusApiClient,
     GatusApiClientConnectionError,

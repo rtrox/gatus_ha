@@ -8,10 +8,10 @@ _Expose Your Gatus Uptime Checks as Sensors_
 
 <div align="center">
 
-[![GitHub branch check runs](https://img.shields.io/github/check-runs/rtrox/gatus_ha/main?style=for-the-badge&logo=pytest&logoColor=white&label=main)](https://github.com/rtrox/gatus_ha/actions?query=branch%3Amain)
-[![Coveralls](https://img.shields.io/coverallsCoverage/github/rtrox/gatus_ha?branch=main&style=for-the-badge&logo=coveralls&logoColor=white)](https://coveralls.io/github/rtrox/gatus_ha?branch=main)
-![GitHub Repo stars](https://img.shields.io/github/stars/rtrox/gatus_ha?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/rtrox/gatus_ha?style=for-the-badge)
+[![GitHub branch check runs](https://img.shields.io/github/check-runs/rtrox/gatus/main?style=for-the-badge&logo=pytest&logoColor=white&label=main)](https://github.com/rtrox/gatus/actions?query=branch%3Amain)
+[![Coveralls](https://img.shields.io/coverallsCoverage/github/rtrox/gatus?branch=main&style=for-the-badge&logo=coveralls&logoColor=white)](https://coveralls.io/github/rtrox/gatus?branch=main)
+![GitHub Repo stars](https://img.shields.io/github/stars/rtrox/gatus?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/rtrox/gatus?style=for-the-badge)
 
 [![HACS Custom Integration](https://img.shields.io/badge/HACS-Custom_Integration-blue?style=for-the-badge)](https://hacs.xyz/docs/faq/custom_repositories/)
 </div>

@@ -1,4 +1,4 @@
-"""Binary sensor platform for gatus_ha."""
+"""Binary sensor platform for gatus."""
 
 from __future__ import annotations
 

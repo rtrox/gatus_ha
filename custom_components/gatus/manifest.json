@@ -1,12 +1,12 @@
 {
-  "domain": "gatus_ha",
+  "domain": "gatus",
   "name": "Gatus Uptime Monitors",
   "codeowners": ["@rtrox"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/rtrox/gatus_ha/blob/main/README.md",
+  "documentation": "https://github.com/rtrox/gatus/blob/main/README.md",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/rtrox/gatus_ha/issues",
+  "issue_tracker": "https://github.com/rtrox/gatus/issues",
   "requirements": [],
   "version": "0.1.0"
 }
