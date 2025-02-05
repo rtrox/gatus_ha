@@ -33,7 +33,6 @@ async def mocked_client(
 async def mocked_entry(
     hass: HomeAssistant,
     mocked_client: Any,
-    mocker: Callable[..., Generator[MockerFixture, None, None]],
 ) -> tuple[HomeAssistant, MockConfigEntry, Any]:
     entry = MockConfigEntry(
         domain=DOMAIN,

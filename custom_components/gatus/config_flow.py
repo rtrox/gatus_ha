@@ -34,18 +34,11 @@ class GatusFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle a flow initialized by the user."""
         _errors = {}
         if user_input is not None:
-            try:
-                await self._test_connection(
-                    url=user_input[CONF_URL],
-                    verifyssl=user_input[CONF_VERIFY_SSL],
-                )
-            except GatusApiClientTimeoutError as e:
-                LOGGER.warning("Timeout error: %s", e)
-                _errors["base"] = "timeout"
-            except GatusApiClientError as e:
-                LOGGER.error("Error: %s", e)
-                _errors["base"] = "unknown"
-            else:
+            _errors = await self._test_connection(
+                url=user_input[CONF_URL],
+                verifyssl=user_input[CONF_VERIFY_SSL],
+            )
+            if _errors == {}:
                 await self.async_set_unique_id(slugify(user_input[CONF_NAME]))
                 self._abort_if_unique_id_configured()
                 return self.async_create_entry(
@@ -87,7 +80,7 @@ class GatusFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
         client = GatusApiClient(url, async_create_clientsession(self.hass), verifyssl)
         try:
-            await client.async_get_config()
+            await client.async_get_statuses()
         except GatusApiClientTimeoutError as e:
             LOGGER.warning("Timeout error: %s", e)
             errors["base"] = "timeout"
