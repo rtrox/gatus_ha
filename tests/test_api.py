@@ -255,55 +255,21 @@ async def test_async_get_statuses(
 
 
 @pytest.mark.asyncio
-async def test_timeout_error(client: GatusApiClient) -> None:
+@pytest.mark.parametrize(
+    ("exception", "error"),
+    [
+        (TimeoutError, GatusApiClientTimeoutError),
+        (ClientConnectionError, GatusApiClientConnectionError),
+        (ClientSSLError(Mock(), OSError("SSL error")), GatusApiClientSSLError),
+        (ClientConnectorDNSError(Mock(), OSError("DNS error")), GatusApiClientDNSError),
+        (Exception, GatusApiClientError),
+    ],
+)
+async def test_timeout_error(
+    client: GatusApiClient, exception: Exception, error
+) -> None:
     with aioresponses() as m:
-        m.get(f"{API_URL}{CONFIG_PATH}", exception=TimeoutError)
+        m.get(f"{API_URL}{CONFIG_PATH}", exception=exception)
 
-        with pytest.raises(GatusApiClientTimeoutError):
-            await client.async_get_config()
-
-
-@pytest.mark.asyncio
-async def test_ssl_error(client: GatusApiClient) -> None:
-    connection_key = Mock()
-    os_error = OSError("SSL error")
-    with aioresponses() as m:
-        m.get(
-            f"{API_URL}{CONFIG_PATH}",
-            exception=ClientSSLError(connection_key, os_error),
-        )
-
-        with pytest.raises(GatusApiClientSSLError):
-            await client.async_get_config()
-
-
-@pytest.mark.asyncio
-async def test_dns_error(client: GatusApiClient) -> None:
-    connection_key = Mock()
-    os_error = OSError("DNS error")
-    with aioresponses() as m:
-        m.get(
-            f"{API_URL}{CONFIG_PATH}",
-            exception=ClientConnectorDNSError(connection_key, os_error),
-        )
-
-        with pytest.raises(GatusApiClientDNSError):
-            await client.async_get_config()
-
-
-@pytest.mark.asyncio
-async def test_connection_error(client: GatusApiClient) -> None:
-    with aioresponses() as m:
-        m.get(f"{API_URL}{CONFIG_PATH}", exception=ClientConnectionError)
-
-        with pytest.raises(GatusApiClientConnectionError):
-            await client.async_get_config()
-
-
-@pytest.mark.asyncio
-async def test_unknown_error(client: GatusApiClient) -> None:
-    with aioresponses() as m:
-        m.get(f"{API_URL}{CONFIG_PATH}", exception=Exception)
-
-        with pytest.raises(GatusApiClientError):
+        with pytest.raises(error):
             await client.async_get_config()

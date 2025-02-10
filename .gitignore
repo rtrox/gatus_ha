@@ -3,6 +3,7 @@
 # artifacts
 __pycache__
 .pytest*
+.mypy_cache*
 *.egg-info
 */build/*
 */dist/*
