@@ -266,7 +266,7 @@ async def test_async_get_statuses(
     ],
 )
 async def test_timeout_error(
-    client: GatusApiClient, exception: Exception, error
+    client: GatusApiClient, exception: Exception, error: Exception,
 ) -> None:
     with aioresponses() as m:
         m.get(f"{API_URL}{CONFIG_PATH}", exception=exception)
